@@ -4,13 +4,13 @@ import pandas as pd
 import pickle
 
 # Load dataset
-product_df = pd.read_csv("/product.csv", delimiter=",", on_bad_lines='skip')
+product_df = pd.read_csv("product.csv", delimiter=",", on_bad_lines='skip')
 
 # Ambil subkategori unik
 all_products = sorted(set(product_df['subCategory'].unique()))
 
 # Load rules dari pickle
-rules = pd.read_pickle("/rules.pkl")
+rules = pd.read_pickle("rules.pkl")
 rules['antecedents'] = rules['antecedents'].apply(lambda x: set(x) if not isinstance(x, set) else x)
 rules['consequents'] = rules['consequents'].apply(lambda x: set(x) if not isinstance(x, set) else x)
 
